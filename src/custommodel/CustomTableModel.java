@@ -9,10 +9,10 @@ public class CustomTableModel extends AbstractTableModel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	ArrayList<Object[]> rows;
-	String[] headers;
-	int[] editableColumns = null;
-	Class<?>[] columnTypes = null;
+	private ArrayList<Object[]> rows;
+	private String[] headers;
+	private int[] editableColumns = null;
+	private Class<?>[] columnTypes = null;
 
 	public void addRow(Object[] row) {
 		rows.add(row);

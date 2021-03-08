@@ -21,6 +21,12 @@ public class User {
 		setUsername(username);
 		setPassword(password);
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getName();
+	}
 
 	public String getPassword() {
 		return password;
