@@ -1,8 +1,8 @@
 package objectholder;
 
 public class User {
-	int id;
-	String name, username, password;
+	private int id;
+	private String name, username, password;
 
 	public User(int id, String name, String username) {
 		setId(id);
