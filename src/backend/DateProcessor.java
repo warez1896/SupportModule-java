@@ -8,7 +8,9 @@ public class DateProcessor {
 	private static SimpleDateFormat SDF_SQL = new SimpleDateFormat("yyyy-MM-dd"),
 			SDF_READABLE = new SimpleDateFormat("MM/dd/yyyy"),
 			SDF_TIMESTAMP_SQL = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"),
-			SDF_TIMESTAMP_READABLE = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+			SDF_TIMESTAMP_READABLE = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss"),
+			SDF_BILLMONTH_SQL = new SimpleDateFormat("yyyyMM"),
+			SDF_BILLMONTH_READABLE = new SimpleDateFormat("MMM yyyy");
 
 	public static Calendar getCalendar() {
 		return Calendar.getInstance();
@@ -18,6 +20,24 @@ public class DateProcessor {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
 		return cal;
+	}
+
+	public static String toReadableBillMonth(Date billMonth) {
+		if (billMonth == null)
+			return null;
+		return SDF_BILLMONTH_READABLE.format(billMonth);
+	}
+
+	public static int toSQLBillMonth(Date billMonth) {
+		if (billMonth == null)
+			return 0;
+		return Integer.parseInt(SDF_BILLMONTH_SQL.format(billMonth));
+	}
+
+	public static Date toDateObjectFromBillMonth(String sBillMonth) throws Exception {
+		if (sBillMonth == null)
+			return null;
+		return SDF_BILLMONTH_SQL.parse(sBillMonth);
 	}
 
 	public static int getYear() {
